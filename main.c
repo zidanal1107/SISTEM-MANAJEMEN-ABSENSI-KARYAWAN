@@ -2,6 +2,7 @@
 #include "CRUD/data.h"
 
 struct karyawan k = {0};
+struct absensi a = {0};
 
 int main() {
     while (1) {
@@ -17,7 +18,7 @@ int main() {
             menu_karyawan(&k);
             break;
         case 2:
-            
+            absensi(&a, &k);
             break;
         case 3:
             

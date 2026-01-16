@@ -24,8 +24,13 @@ struct absensi {
 // File handling (declared extern to avoid multiple definitions)
 extern FILE *fp_karyawan;
 extern const char fileName_karyawan[];
+extern FILE *fp_absensi;
+extern const char fileName_absensi[];
 extern FILE *temp;
 extern const char fileName_temp[];
+
+// Panggil function absensi
+void absensi(struct absensi *a,struct karyawan *k);
 
 // Panggil function karyawan
 void menu_karyawan(struct karyawan* k);
