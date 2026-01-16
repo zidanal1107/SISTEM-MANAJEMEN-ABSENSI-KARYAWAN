@@ -95,3 +95,39 @@ void absensi(struct absensi *a, struct karyawan *k) {
     printf("\nAbsensi berhasil dicatat...\n");
     getchar(); getchar();
 }
+
+void rekap() {
+    char line[200];
+
+    fp_absensi = fopen(fileName_absensi, "r");
+    if (!fp_absensi) {
+        printf("Data absensi belum ada!\n");
+        getchar(); getchar();
+        return;
+    }
+
+    clear();
+    printf("=========== REKAP ABSENSI DETAIL ===========\n");
+    printf("%-6s %-6s %-6s %-8s %-8s\n",
+           "ID", "Tgl", "Bln", "Tahun", "Status");
+    printf("-------------------------------------------\n");
+
+    fgets(line, sizeof(line), fp_absensi); // skip header
+
+    while (fgets(line, sizeof(line), fp_absensi)) {
+        int id, tgl, bln, thn;
+        char status;
+
+        if (sscanf(line, "%d;%d;%d;%d;%c",
+                   &id, &tgl, &bln, &thn, &status) == 5) {
+            printf("%-6d %-6d %-6d %-8d %-8c\n",
+                   id, tgl, bln, thn, status);
+        }
+    }
+
+    fclose(fp_absensi);
+
+    printf("===========================================\n");
+    printf("Tekan enter...");
+    getchar(); getchar();
+}

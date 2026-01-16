@@ -21,7 +21,7 @@ int main() {
             absensi(&a, &k);
             break;
         case 3:
-            
+            rekap();
             break;
         case 0:
             printf("\nProgram selesai!\n");

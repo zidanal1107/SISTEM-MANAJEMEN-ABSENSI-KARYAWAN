@@ -31,6 +31,7 @@ extern const char fileName_temp[];
 
 // Panggil function absensi
 void absensi(struct absensi *a,struct karyawan *k);
+void rekap(void);
 
 // Panggil function karyawan
 void menu_karyawan(struct karyawan* k);
